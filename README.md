@@ -1,18 +1,19 @@
 # CGATCPred
-Files:
-1.Dataset
+Files: 
+1.data.rar
+Ch_one.txt Ch_two.txt, Ch_three.txt, Ch_four.txt, Ch_five.txt, Ch_six.txt, Ch_seven.txt store SMSim, SMExp, SMDat, SMTex, SMCom, SMcp and SMsub respectively.
 
-1) lncSim.mat and disSim_Jaccard.mat store lncRNA similarity matrix and disease similarity matrix, respectively;
+Drug_ATC_label.pckl stores known drug-ATC code associations.
 
-2) interMatrix.mat stores known lncRNA-disease association information;
-
-3) lncRNA_Name.txt and diseases_Name.txt store lncRNA ids and disease ids, respectively;
+glove_wordEmbedding.pkl stores ATC label word embeddings.
 
 2.Code
-1) gKernel.m: function computing Gaussian interaction profile kernel;
 
-2) pca_energy.m: function extracting feature vectors via PCA;
+Extra_label_matrix.py: function computing label correlation matrix;
 
-3) SIMC.m : function completing matrix;
+single_label.py: computing evaluation metric;
 
-4) SIMCLDA: predict potential lncRNA-disease associations; 
+network_kfold.py: network framework;
+
+cross_validation.py: ten-fold cross-validation function.
+
