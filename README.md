@@ -26,7 +26,6 @@ cross_validation.py: This function can test the predictive performance of our mo
 * scikit-learn == 0.21.3
 
 # Require input files
-Drug_ATC_label: The compound-ATC code adjacency matrix, each row corresponds to multiple ATC code labels of a compound.
 
 SMSim: The fingerprint similarity matrix of chemicals.
 
@@ -43,6 +42,8 @@ The above five matrices are all collected from the file "Chemical_chemical.links
 SMcp: The results of the online program (SIMCOMP). SIMCOMP is used to determine the maximal common substructure of two drugs and calculate the score based on the sizes of the common substructure and two drugs.
 
 SMsub: The results of the online program (SUBCOMP). SUBCOMP is used to determine exactly matching substructures or superstructures, thereby evaluating the similarity score.
+
+Drug_ATC_label: The compound-ATC code adjacency matrix, each row corresponds to multiple ATC code labels of a compound.
 
 # How to training and testing our model (example)
 python cross_validation.py --rawdata_dir /Your path --model_dir /Your path --num_epochs 50 --batch_size 128
