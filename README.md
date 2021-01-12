@@ -24,7 +24,7 @@ cross_validation.py: This function can test the predictive performance of our mo
 * Numpy == 1.16.2
 * scikit-learn == 0.21.3
 
-# Required input files
+# Require input files
 Drug_ATC_label: The compound-ATC code adjacency matrix, each row corresponds to multiple ATC code labels of a compound.
 
 SMSim: The fingerprint similarity matrix of chemicals.
@@ -46,7 +46,7 @@ SMsub: The results of the online program (SUBCOMP). SUBCOMP is used to determine
 # How to training and testing our model (example)
 python cross_validation.py --rawdata_dir /Your path --model_dir /Your path --num_epochs 50 --batch_size 128
 
-rawdata_dir: All input data should be placed in the folder of this path. (The data folder we uploaded contains all the required data samples.)
+rawdata_dir: All input data should be placed in the folder of this path. (The data folder we uploaded contains all the required data.)
 model_dir: Define the path to save the model.
 num_epochs: Define the maximum number of epochs.
 batch_size: Define the number of batch size for training and testing.
