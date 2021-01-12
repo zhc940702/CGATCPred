@@ -46,7 +46,7 @@ SMsub: The results of the online program (SUBCOMP). SUBCOMP is used to determine
 Drug_ATC_label: The compound-ATC code adjacency matrix, each row corresponds to multiple ATC code labels of a compound.
 
 # How to training and testing our model (example)
-python cross_validation.py --rawdata_dir /Your path --model_dir /Your path --num_epochs 50 --batch_size 128
+python cross_validation.py --rawdata_dir /Your path --model_dir /Your path --num_epochs Your number --batch_size Your number
 
 rawdata_dir: All input data should be placed in the folder of this path. (The data folder we uploaded contains all the required data.)
 
@@ -58,10 +58,10 @@ batch_size: Define the number of batch size for training and testing.
 
 All files of Data and Code should be stored in the same folder to run the model.
 
-Example (download hg19 RefSeq gene annotation file):
+Example :
 
 ```bash
-fetch_ucsc.py hg19 ref ref.txt
+python cross_validation.py --rawdata_dir /data --model_dir /save_model --num_epochs 50 --batch_size 128
 ```
 
 
