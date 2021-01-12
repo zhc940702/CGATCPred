@@ -57,3 +57,11 @@ num_epochs: Define the maximum number of epochs.
 batch_size: Define the number of batch size for training and testing.
 
 All files of Data and Code should be stored in the same folder to run the model.
+
+Example (download hg19 RefSeq gene annotation file):
+
+```bash
+fetch_ucsc.py hg19 ref ref.txt
+```
+
+
