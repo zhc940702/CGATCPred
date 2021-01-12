@@ -47,8 +47,11 @@ SMsub: The results of the online program (SUBCOMP). SUBCOMP is used to determine
 python cross_validation.py --rawdata_dir /Your path --model_dir /Your path --num_epochs 50 --batch_size 128
 
 rawdata_dir: All input data should be placed in the folder of this path. (The data folder we uploaded contains all the required data.)
+
 model_dir: Define the path to save the model.
+
 num_epochs: Define the maximum number of epochs.
+
 batch_size: Define the number of batch size for training and testing.
 
 All files of Data and Code should be stored in the same folder to run the model.
