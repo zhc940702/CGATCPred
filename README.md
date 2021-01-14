@@ -1,4 +1,8 @@
 # CGATCPred
+An end-to-end deep learning model based on CNN and GCN module, named CGATCPred, is developed to predict ATC codes for given compounds in first ATC level by integrating seven compoundcompound association scores and ATC label correlation graph.
+
+
+
 
 # Requirements
 * python == 3.6
