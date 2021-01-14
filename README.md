@@ -1,6 +1,13 @@
 # CGATCPred
 
-Files:
+# Requirements
+* python == 3.6
+* pytorch == 1.6
+* Numpy == 1.16.2
+* scikit-learn == 0.21.3
+
+
+# Files:
 
 1.data
 
@@ -44,11 +51,7 @@ network_kfold.py: This function contains the network framework of our entire mod
 
 cross_validation.py: This function can test the predictive performance of our model under ten-fold cross-validation.
 
-# Requirements
-* python == 3.6
-* pytorch == 1.6
-* Numpy == 1.16.2
-* scikit-learn == 0.21.3
+
 
 # Require input files
 You should prepare seven compound-compound similarity matrices, one compound-ATC code association matrix and one ATC code word vector coding matrix. All matrices are stored in pickle file format.
