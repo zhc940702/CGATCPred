@@ -94,3 +94,5 @@ Example:
 ```bash
 python cross_validation.py --rawdata_dir /data --model_dir /save_model --num_epochs 50 --batch_size 128
 ```
+# Contact 
+If you have any questions or suggestions with the code, please let us know. Contact Haochen Zhao at zhaohaochen@csu.edu.cn
