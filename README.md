@@ -38,7 +38,7 @@ drug_feature_one = pickle.load(gii)
 
 Extra_label_matrix.py: By entering the compound-ATC label adjacency matrix, the function can calculate the correlation scores between each ATC label.
 
-single_label.py: computing evaluation metric; This function can evaluate the prediction performance of a multi-label classifier. Evaluation indicators are: Hamming loss, Aiming, Coverage, Absolute true rate, Absolute false rate and Accuracy.
+single_label.py: computing evaluation metric. This function can evaluate the prediction performance of a multi-label classifier. Evaluation indicators are: Hamming loss, Aiming, Coverage, Absolute true rate, Absolute false rate and Accuracy.
 
 network_kfold.py: This function contains the network framework of our entire model and is based on pytorch 1.6. The model includes multiple CNN and GCN layers.
 
@@ -51,6 +51,7 @@ cross_validation.py: This function can test the predictive performance of our mo
 * scikit-learn == 0.21.3
 
 # Require input files
+You should prepare one compound-ATC code association matrix, seven compound-compound similarity matrices and one ATC code word vector coding matrix. All matrices are stored in pickle file format.
 
 SMSim: The fingerprint similarity matrix of chemicals.
 
@@ -62,13 +63,15 @@ SMTex: The co-occurrence similarity matrix of chemicals.
 
 SMCom: The integrated similarity matrix of chemicals.
 
-The above five matrices can be collected from the file "Chemical_chemical.links.detailed.v5.0.tsv.gz" in STITCH database.
+The above five similarity matrices can be collected from the file "Chemical_chemical.links.detailed.v5.0.tsv.gz" in STITCH database.
 
-SMcp: The results of the online program (SIMCOMP). SIMCOMP is used to determine the maximal common substructure of two drugs and calculate the score based on the sizes of the common substructure and two drugs.
+SMcp: The results of the online program (SIMCOMP). SIMCOMP is used to determine the maximal common substructure of two drugs and calculate the score based on the sizes of the common substructure and two drugs. SMcp can be calculated by the website (http://www.genome.jp/tools/simcomp/).
 
-SMsub: The results of the online program (SUBCOMP). SUBCOMP is used to determine exactly matching substructures or superstructures, thereby evaluating the similarity score.
+SMsub: The results of the online program (SUBCOMP). SUBCOMP is used to determine exactly matching substructures or superstructures, thereby evaluating the similarity score. SMsub can be calculated by the website (http://www.genome.jp/tools/subcomp/).
 
-Drug_ATC_label: The compound-ATC code adjacency matrix, each row of the matrix corresponds to multiple ATC code labels of a compound.
+Compound-ATC code association matrix: each row of the matrix corresponds to multiple ATC code labels of a compound.
+
+ATC code word vector coding matrix: The vector can be obtained by using the ‘torchtext’ package in python.
 
 # Train and test folds
 python cross_validation.py --rawdata_dir /Your path --model_dir /Your path --num_epochs Your number --batch_size Your number
@@ -83,7 +86,7 @@ batch_size: Define the number of batch size for training and testing.
 
 All files of Data and Code should be stored in the same folder to run the model.
 
-Example :
+Example:
 
 ```bash
 python cross_validation.py --rawdata_dir /data --model_dir /save_model --num_epochs 50 --batch_size 128
