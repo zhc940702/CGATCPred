@@ -71,7 +71,7 @@ SMsub: The results of the online program (SUBCOMP). SUBCOMP is used to determine
 
 Compound-ATC code association matrix: each row of the matrix corresponds to multiple ATC code labels of a compound.
 
-ATC code word vector coding matrix: The vector can be obtained by using the ‘torchtext’ package in python.
+ATC code word vector coding matrix: each row of the matrix corresponds to the ATC code word vector which can be obtained by using the ‘torchtext’ package in python.
 
 # Train and test folds
 python cross_validation.py --rawdata_dir /Your path --model_dir /Your path --num_epochs Your number --batch_size Your number
