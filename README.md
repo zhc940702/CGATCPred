@@ -51,7 +51,7 @@ cross_validation.py: This function can test the predictive performance of our mo
 * scikit-learn == 0.21.3
 
 # Require input files
-You should prepare one compound-ATC code association matrix, seven compound-compound similarity matrices and one ATC code word vector coding matrix. All matrices are stored in pickle file format.
+You should prepare seven compound-compound similarity matrices, one compound-ATC code association matrix and one ATC code word vector coding matrix. All matrices are stored in pickle file format.
 
 SMSim: The fingerprint similarity matrix of chemicals.
 
