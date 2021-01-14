@@ -62,7 +62,7 @@ SMTex: The co-occurrence similarity matrix of chemicals.
 
 SMCom: The integrated similarity matrix of chemicals.
 
-The above five matrices you can collect from the file "Chemical_chemical.links.detailed.v5.0.tsv.gz" in STITCH database.
+The above five matrices can be collected from the file "Chemical_chemical.links.detailed.v5.0.tsv.gz" in STITCH database.
 
 SMcp: The results of the online program (SIMCOMP). SIMCOMP is used to determine the maximal common substructure of two drugs and calculate the score based on the sizes of the common substructure and two drugs.
 
