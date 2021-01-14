@@ -1,13 +1,38 @@
 # CGATCPred
+
 Files:
 
 1.data
 
-Ch_one.pckl Ch_two.pckl, Ch_three.pckl, Ch_four.pckl, Ch_five.pckl, Ch_six.pckl, Ch_seven.pckl store SMSim, SMExp, SMDat, SMTex, SMCom, SMcp and SMsub respectively.
+Ch_one.pckl: The fingerprint similarity matrix of chemicals.
 
-Drug_ATC_label.pckl stores known drug-ATC code associations.
+Ch_two.pckl: The activities similarity matrix of chemicals.
 
-glove_wordEmbedding.pkl stores ATC label word embeddings.
+Ch_three.pckl: The reactions similarity matrix of chemicals.
+
+Ch_four.pckl: The co-occurrence similarity matrix of chemicals.
+
+Ch_five.pckl: The integrated similarity matrix of chemicals.
+
+The above five matrices are all collected from the file "Chemical_chemical.links.detailed.v5.0.tsv.gz" in STITCH database (http://stitch.embl.de/). The row of each matrix represents the similarity value between a compound and all compounds in the benchmark dataset. The range of values is from 0 to 1.
+
+Ch_six.pckl: The similarity matrix calculated by the online program SIMCOMP (http://www.genome.jp/tools/simcomp/). The row of the matrix represents the similarity value between a compound and all compounds in the benchmark dataset. The range of values is from 0 to 1.
+
+Ch_seven.pckl: The chemical similarity matrix calculated by the online program SUBCOMP (http://www.genome.jp/tools/subcomp/). The row of the matrix represents the similarity value between a compound and all compounds in the benchmark dataset. The range of values is from 0 to 1.
+
+Drug_ATC_label.pckl: The benchmark dataset matrix. We employed the benchmark dataset that was first used in Chen et al.’s study (Chen L, Zeng W M, Cai Y D, et al. Predicting anatomical therapeutic chemical (ATC) classification of drugs by integrating chemical-chemical interactions and similarities[J]. PloS one, 2012, 7(4): e35254.). A total of 3,883 drugs, represented by KEGG drug IDs, were obtained. These drugs were classified into 14 groups. The matrix has 3883 rows and 14 columns to store the known drug- ATC code associations.
+
+glove_wordEmbedding.pkl: ATC label word embeddings. We use the 300-dimensional Global Vectors (GloVe) trained on the Wikipedia dataset to represent the information of ATC labels (nodes) in the correlation graph. Each row of the matrix represents the word vector encoding of an ATC code.
+
+If you want to view the value stored in the file, you can run the following command:
+
+```bash
+import pickle
+import numpy as np
+gii = open(‘data’ + '/' + ' Ch_one.pckl', 'rb')
+drug_feature_one = pickle.load(gii)
+```
+
 
 2.Code
 
@@ -37,15 +62,15 @@ SMTex: The co-occurrence similarity matrix of chemicals.
 
 SMCom: The integrated similarity matrix of chemicals.
 
-The above five matrices are all collected from the file "Chemical_chemical.links.detailed.v5.0.tsv.gz" in STITCH database.
+The above five matrices you can collect from the file "Chemical_chemical.links.detailed.v5.0.tsv.gz" in STITCH database.
 
 SMcp: The results of the online program (SIMCOMP). SIMCOMP is used to determine the maximal common substructure of two drugs and calculate the score based on the sizes of the common substructure and two drugs.
 
 SMsub: The results of the online program (SUBCOMP). SUBCOMP is used to determine exactly matching substructures or superstructures, thereby evaluating the similarity score.
 
-Drug_ATC_label: The compound-ATC code adjacency matrix, each row corresponds to multiple ATC code labels of a compound.
+Drug_ATC_label: The compound-ATC code adjacency matrix, each row of the matrix corresponds to multiple ATC code labels of a compound.
 
-# How to training and testing our model (example)
+# Train and test folds
 python cross_validation.py --rawdata_dir /Your path --model_dir /Your path --num_epochs Your number --batch_size Your number
 
 rawdata_dir: All input data should be placed in the folder of this path. (The data folder we uploaded contains all the required data.)
@@ -63,5 +88,3 @@ Example :
 ```bash
 python cross_validation.py --rawdata_dir /data --model_dir /save_model --num_epochs 50 --batch_size 128
 ```
-
-
